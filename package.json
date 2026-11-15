@@ -1,0 +1,17 @@
+{
+  "name": "loop",
+  "version": "1.0.0",
+  "description": "Practice player: slow audio down without changing pitch and loop tricky sections.",
+  "main": "main.js",
+  "author": "Your Name",
+  "license": "MIT",
+  "scripts": { "start": "electron .", "dist": "electron-builder --win" },
+  "devDependencies": { "electron": "^33.2.0", "electron-builder": "^25.1.8" },
+  "build": {
+    "appId": "com.example.loop",
+    "productName": "Loop",
+    "files": ["main.js", "preload.js", "index.html", "style.css", "app.js"],
+    "win": { "target": "nsis" },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
+  }
+}

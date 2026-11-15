@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; media-src blob:; style-src 'self' 'unsafe-inline'">
+<title>Loop</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header class="bar">
+  <span class="brand">Loop</span>
+  <div class="transport">
+    <button id="back" class="key" title="Back to start (Home)"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+    <button id="play" class="key big" title="Play / pause (Space)"><svg class="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z"/></svg><svg class="i-pause" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
+    <button id="loopBtn" class="key" title="Loop on/off (L)"><svg viewBox="0 0 24 24"><path d="M17 2l4 4-4 4V7H5v4H3V6a1 1 0 011-1h13zM7 22l-4-4 4-4v3h12v-4h2v5a1 1 0 01-1 1H7z"/></svg></button>
+  </div>
+  <div class="lcd"><div id="time">0:00.0</div><div class="sub"><span id="range">No loop selected</span><span id="spd">×1.00</span></div></div>
+  <label class="speed">Speed<input id="speed" type="range" min="50" max="150" step="5" value="100"></label>
+  <button id="help" class="key wide">Tour</button>
+  <button id="open" class="key">Open audio…</button>
+</header>
+<main>
+  <section class="stage">
+    <div class="label"><b id="track">No track</b><span id="dur"></span></div>
+    <div class="timeline" id="tl">
+      <div class="ruler" id="ruler"></div><canvas id="wave"></canvas>
+      <div id="region"></div><div id="head"></div>
+      <div id="drop">Drop an audio file here<small>or press Open audio</small></div>
+    </div>
+    <p class="hint">Drag across the waveform to set a loop. Click to jump. Space plays, L loops, S saves, [ ] changes speed.</p>
+  </section>
+  <aside><h2>Saved loops</h2><button id="save" class="key wide">Save loop</button><ul id="secs"></ul></aside>
+</main>
+<div id="tour"></div>
+<div id="toast"></div>
+<script src="app.js"></script>
+</body></html>
